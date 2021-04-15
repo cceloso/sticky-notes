@@ -1,16 +1,17 @@
 // Selectors
 const dropdown = document.querySelector(".dropdown");
 const executeBtn = document.querySelector(".execute-btn");
+const lockBtn = document.querySelector(".lock-btn");
 const notesContainer = document.querySelector(".notes-container");
 
 // Event listeners
 executeBtn.addEventListener("click", executeOption);
+lockBtn.addEventListener("click", toggleLock);
 
 // Functions
 function executeOption(e) {
     // Prevent form from submitting
     e.preventDefault();
-    // console.log(e.target);
 
     switch(dropdown.value) {
         case "--":
@@ -18,7 +19,6 @@ function executeOption(e) {
             break;
         case "add":
             console.log("add");
-            dropdown.value = "--";
             addNote();
             break;
         case "delete":
@@ -27,6 +27,28 @@ function executeOption(e) {
             deleteAllNotes(notesContainer);
             break;
     }
+}
+
+function toggleTextareas(textareas) {
+    for(let i = 0; i < textareas.length; i++) {
+        textareas[i].disabled = !(textareas[i].disabled);
+    }
+}
+
+function toggleLock(e) {
+    // Prevent form from submitting
+    e.preventDefault();
+
+    // Select all textareas and enable/disable editing
+    const textareas = document.getElementsByTagName("textarea");
+
+    if(lockBtn.textContent == "Lock Editing") {
+        lockBtn.textContent = "Unlock Editing";
+    } else {
+        lockBtn.textContent = "Lock Editing";
+    }
+
+    toggleTextareas(textareas);
 }
 
 function addNote() {
