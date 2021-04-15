@@ -143,11 +143,19 @@ function createNoteStructure(noteTitleInput, noteContentInput, isCalledByAddNote
 }
 
 function addNote() {
+    if(locked) {
+        return;
+    }
+    
     // Create note
     createNoteStructure("", "", true);
 }
 
 function deleteSingleNote(e) {
+    if(locked) {
+        return;
+    }
+
     const item = e.target;
     // console.log(item);
 
@@ -167,6 +175,10 @@ function deleteSingleNote(e) {
 }
 
 function deleteAllNotes(container) {
+    if(locked) {
+        return;
+    }
+    
     while(container.firstChild) {
         container.removeChild(container.firstChild);
     }
