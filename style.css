@@ -16,7 +16,7 @@
     flex-wrap: wrap;
     justify-content: center;
     /* align-items: center; */
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 .note {
@@ -34,7 +34,6 @@
 
 .title-delete-container {
     display: flex;
-    /* justify-content: space-between; */
 }
 
 .delete-btn {
@@ -47,10 +46,6 @@
 .fa-times {
     pointer-events: none;
 }
-
-/* .note-title:hover + .delete-btn {
-    display: flex;
-} */
 
 .note-title, .note-content {
     resize: none;
