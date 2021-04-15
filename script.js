@@ -1,15 +1,26 @@
 // Selectors
 const dropdown = document.querySelector(".dropdown");
+const deleteOption = document.querySelector(".delete-option");
 const executeBtn = document.querySelector(".execute-btn");
 const lockBtn = document.querySelector(".lock-btn");
 const notesContainer = document.querySelector(".notes-container");
 let locked = false;
+// let displayDeleteOption;
 
 // Event listeners
 executeBtn.addEventListener("click", executeOption);
 lockBtn.addEventListener("click", toggleLock);
 
 // Functions
+function toggleDeleteOption() {
+    let note = document.querySelector(".note");
+    if(note == null) {
+        deleteOption.style.display = "none";
+    } else {
+        deleteOption.style.display = "block";
+    }
+}
+
 function executeOption(e) {
     // Prevent form from submitting
     e.preventDefault();
@@ -28,6 +39,8 @@ function executeOption(e) {
             deleteAllNotes(notesContainer);
             break;
     }
+
+    toggleDeleteOption();
 }
 
 function toggleTextareas() {
