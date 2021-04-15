@@ -3,6 +3,7 @@ const dropdown = document.querySelector(".dropdown");
 const executeBtn = document.querySelector(".execute-btn");
 const lockBtn = document.querySelector(".lock-btn");
 const notesContainer = document.querySelector(".notes-container");
+let locked = false;
 
 // Event listeners
 executeBtn.addEventListener("click", executeOption);
@@ -29,9 +30,12 @@ function executeOption(e) {
     }
 }
 
-function toggleTextareas(textareas) {
+function toggleTextareas() {
+    // Select all textareas and enable/disable editing
+    const textareas = document.getElementsByTagName("textarea");
+
     for(let i = 0; i < textareas.length; i++) {
-        textareas[i].disabled = !(textareas[i].disabled);
+        textareas[i].disabled = locked;
     }
 }
 
@@ -39,16 +43,15 @@ function toggleLock(e) {
     // Prevent form from submitting
     e.preventDefault();
 
-    // Select all textareas and enable/disable editing
-    const textareas = document.getElementsByTagName("textarea");
-
     if(lockBtn.textContent == "Lock Editing") {
         lockBtn.textContent = "Unlock Editing";
+        locked = true;
     } else {
         lockBtn.textContent = "Lock Editing";
+        locked = false;
     }
 
-    toggleTextareas(textareas);
+    toggleTextareas();
 }
 
 function addNote() {
