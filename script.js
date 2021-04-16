@@ -114,11 +114,14 @@ function createNoteStructure(noteTitleInput, noteContentInput, isCalledByAddNote
     titleDeleteContainer.appendChild(noteTitle);
 
     // Delete button
+    const deleteBtnContainer = document.createElement("div");
+    deleteBtnContainer.classList.add("delete-btn-container");
     const deleteBtn = document.createElement("button");
     deleteBtn.classList.add("delete-btn");
     deleteBtn.type = "submit";
     deleteBtn.innerHTML = '<i class="fas fa-times"></i>';
-    titleDeleteContainer.appendChild(deleteBtn);
+    deleteBtnContainer.appendChild(deleteBtn);
+    titleDeleteContainer.appendChild(deleteBtnContainer);
     noteDiv.appendChild(titleDeleteContainer);
 
     // Note content
@@ -161,16 +164,18 @@ function deleteSingleNote(e) {
 
     // Delete note
     if(item.classList[0] === "delete-btn") {
-        // console.log("Delete button is selected!");
-        const itemParent = item.parentElement; // title-delete-container div
-        const itemGrandparent = itemParent.parentElement; // note div
+        console.log("Delete button is selected!");
+        const itemParent = item.parentElement; // delete-btn-container div
+        const itemGrandparent = itemParent.parentElement; // title-delete-container div 
+        const itemGreatGrandparent = itemGrandparent.parentElement; // note div
 
         // Get index of note as a child of notes-container
-        const noteIndex = getChildElementIndex(itemGrandparent);
+        const noteIndex = getChildElementIndex(itemGreatGrandparent);
+        console.log(noteIndex);
 
         removeNoteInfo(noteIndex, false);
 
-        itemGrandparent.remove();
+        itemGreatGrandparent.remove();
     }
 }
 
