@@ -15,32 +15,30 @@
         <title>Sticky Notes</title>
     </head>
     <body>
-        <div id="main-container">
-            <form>
-                <div class="select">
-                    <select name="dropdown" class="dropdown">
-                        <option value="--">--</option>
-                        <option value="add">Add new note</option>
-                        <option value="delete" class="delete-option">Delete all notes</option>
-                    </select>
-                </div>
-                <button class="execute-btn" type="submit">Go</button>
-                <button class="lock-btn" type="submit">Lock Editing</button>
-            </form>
-            <div class="notes-container">
-                <!-- Note template -->
-                <!-- <div class="note">
-                    <div class="title-delete-container">
-                        <textarea class="note-title" placeholder="Title" rows="1"></textarea>
-                        <div class="delete-btn-container">
-                            <button class="delete-btn" type="submit">
-                                <i class="fas fa-times"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <textarea class="note-content" placeholder="Hello"></textarea>
-                </div> -->
+        <form>
+            <div class="select">
+                <select name="dropdown" class="dropdown">
+                    <option value="--">--</option>
+                    <option value="add">Add new note</option>
+                    <option value="delete" class="delete-option">Delete all notes</option>
+                </select>
             </div>
+            <button class="execute-btn" type="submit">Go</button>
+            <button class="lock-btn" type="submit">Lock Editing</button>
+        </form>
+        <div class="notes-container">
+            <!-- Note template -->
+            <!-- <div class="note">
+                <div class="title-delete-container">
+                    <textarea class="note-title" placeholder="Title" rows="1"></textarea>
+                    <div class="delete-btn-container">
+                        <button class="delete-btn" type="submit">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <textarea class="note-content" placeholder="Hello"></textarea>
+            </div> -->
         </div>
         <script src="script.js"></script>
     </body>

@@ -1,8 +1,4 @@
-/* body {
-    font-family: 'Roboto', sans-serif;
-} */
-
-#main-container {
+body {
     padding: 1.5%;
     /* background-color: #4d375d; */
     background-color: #1B1A1D;
@@ -64,17 +60,15 @@ form {
     background: transparent;
     cursor: pointer;
     visibility: hidden;
-    /* margin: 0 0 10px 10px; */
 }
 
 .fa-times {
     pointer-events: none;
-    /* padding: 0 0 10px 10px; */
 }
 
 .note-title, .note-content {
     resize: none;
-    width: 90%;
+    width: 100%;
     outline: none;
     border: none;
     background-color: transparent;
@@ -88,13 +82,14 @@ form {
 
 .note-content {
     overflow-y: auto;
+    width: 95%;
     height: 70%;
     font-size: 0.75rem;
 }
 
 /* SCROLLBAR STYLE */
 
-/* .note-content::-webkit-scrollbar {
+.note-content::-webkit-scrollbar {
     width: 10px;
 }
 
@@ -110,37 +105,4 @@ form {
 
 .note-content::-webkit-scrollbar-thumb:hover {
     background: #555;
-} */
-
-/* STYLES FOR OLD HTML DOM */
-
-/* .title-container {
-    width: 85%;
-    display: inline-block;
-    float: left;
 }
-
-.clear-float {
-    clear: left;
-}
-
-.delete-button-container {
-    display: inline-block;
-    float: right;
-}
-
-.delete-button-container img {
-    width: 16px;
-    height: 16px;
-}
-
-.title-overflow {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: clip;
-}
-
-.content-container {
-    max-height: 70%;
-    overflow-y: auto;
-} */
