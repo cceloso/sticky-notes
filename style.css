@@ -40,11 +40,13 @@
     border: none;
     background: transparent;
     cursor: pointer;
-    display: flex;
+    visibility: hidden;
+    /* margin: 0 0 10px 10px; */
 }
 
 .fa-times {
     pointer-events: none;
+    /* padding: 0 0 10px 10px; */
 }
 
 .note-title, .note-content {

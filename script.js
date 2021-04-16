@@ -11,9 +11,34 @@ document.addEventListener('DOMContentLoaded', getNoteInfo);
 executeBtn.addEventListener("click", executeOption);
 lockBtn.addEventListener("click", toggleLock);
 notesContainer.addEventListener("click", deleteSingleNote);
-notesContainer.addEventListener("input", saveNoteInfo); // what to use? input/keyup/change listener?
+notesContainer.addEventListener("input", saveNoteInfo);
+notesContainer.addEventListener("mouseover", showDeleteBtn);
+notesContainer.addEventListener("mouseout", hideDeleteBtn);
 
 // Functions
+function showDeleteBtn(e) {
+    const item = e.target;
+
+    if(item.classList[0] === "delete-btn-container") {
+        // console.log("Inside delete button container!");
+        const deleteBtn = item.firstChild;
+        deleteBtn.style.visibility = "visible";    
+    }
+}
+
+function hideDeleteBtn(e) {
+    const item = e.target;
+
+    if(item.classList[0] === "delete-btn-container") {
+        console.log("Inside delete button container!");
+        const deleteBtn = item.firstChild;
+        // deleteBtn.style.visibility = "hidden";
+        setTimeout(function () {
+            deleteBtn.style.visibility = "hidden";
+        }, 300);
+    }
+}
+
 function toggleDeleteOption() {
     let note = document.querySelector(".note");
 
@@ -163,19 +188,33 @@ function deleteSingleNote(e) {
     // console.log(item);
 
     // Delete note
-    if(item.classList[0] === "delete-btn") {
+    // if(item.classList[0] === "delete-btn") {
+    //     console.log("Delete button is selected!");
+    //     const itemParent = item.parentElement; // delete-btn-container div
+    //     const itemGrandparent = itemParent.parentElement; // title-delete-container div 
+    //     const itemGreatGrandparent = itemGrandparent.parentElement; // note div
+
+    //     // Get index of note as a child of notes-container
+    //     const noteIndex = getChildElementIndex(itemGreatGrandparent);
+    //     console.log(noteIndex);
+
+    //     removeNoteInfo(noteIndex, false);
+
+    //     itemGreatGrandparent.remove();
+    // }
+
+    if(item.classList[0] === "delete-btn-container") {
         console.log("Delete button is selected!");
-        const itemParent = item.parentElement; // delete-btn-container div
-        const itemGrandparent = itemParent.parentElement; // title-delete-container div 
-        const itemGreatGrandparent = itemGrandparent.parentElement; // note div
+        const itemParent = item.parentElement; // title-delete-container div
+        const itemGrandparent = itemParent.parentElement; // note div
 
         // Get index of note as a child of notes-container
-        const noteIndex = getChildElementIndex(itemGreatGrandparent);
+        const noteIndex = getChildElementIndex(itemGrandparent);
         console.log(noteIndex);
 
         removeNoteInfo(noteIndex, false);
 
-        itemGreatGrandparent.remove();
+        itemGrandparent.remove();
     }
 }
 
