@@ -109,11 +109,15 @@ function toggleLock(e) {
     e.preventDefault();
 
     if(lockBtn.textContent == "Lock Editing") {
-        lockBtn.textContent = "Unlock Editing";
         locked = true;
+        lockBtn.textContent = "Unlock Editing";
+        executeBtn.style.display = "none";
+        dropdown.style.display = "none";
     } else {
-        lockBtn.textContent = "Lock Editing";
         locked = false;
+        lockBtn.textContent = "Lock Editing";
+        executeBtn.style.display = "flex";
+        dropdown.style.display = "flex";
     }
 
     toggleTextareas();

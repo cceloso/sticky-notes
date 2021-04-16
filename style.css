@@ -4,11 +4,25 @@
 
 #main-container {
     padding: 1.5%;
-    background-color: #4d375d;
+    /* background-color: #4d375d; */
+    background-color: #1B1A1D;
+}
+
+form {
+    display: flex;
+}
+
+.select {
+    font-family: 'Roboto', sans-serif;
+}
+
+.dropdown {
+    /* background-color: #F7F6F7; */
 }
 
 .notes-container {
-    background-color: #121013;
+    /* background-color: #121013; */
+    background-color: #262727;
     margin-top: 1.5%;
     padding: 1.5%;
     border-radius: 10px;
