@@ -220,6 +220,8 @@ function deleteSingleNote(e) {
 
         itemGrandparent.remove();
     }
+
+    toggleDeleteOption();
 }
 
 function deleteAllNotes(container) {
